@@ -132,10 +132,12 @@ class ProgressBar extends Component {
           style={{ width: `${currentIntent * 100}%`, ...(childrenStyles.intent || {}) }}
         />
 
-        <div
-          className={childClasses.handle || 'ProgressBar-handle'}
-          style={{ left: styleLeft, ...(childrenStyles.handle || {}) }}
-        />
+        <div className="ProgressBar-handleContainer">
+          <div
+            className={childClasses.handle || 'ProgressBar-handle'}
+            style={{ left: styleLeft, ...(childrenStyles.handle || {}) }}
+          />
+        </div>
 
         {isSeekable && (
           <RangeControlOverlay

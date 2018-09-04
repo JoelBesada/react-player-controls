@@ -203,10 +203,14 @@ var ProgressBar = (_class = function (_Component) {
           className: childClasses.intent || 'ProgressBar-intent',
           style: _extends({ width: currentIntent * 100 + '%' }, childrenStyles.intent || {})
         }),
-        _react2.default.createElement('div', {
-          className: childClasses.handle || 'ProgressBar-handle',
-          style: _extends({ left: styleLeft }, childrenStyles.handle || {})
-        }),
+        _react2.default.createElement(
+          'div',
+          { className: 'ProgressBar-handleContainer' },
+          _react2.default.createElement('div', {
+            className: childClasses.handle || 'ProgressBar-handle',
+            style: _extends({ left: styleLeft }, childrenStyles.handle || {})
+          })
+        ),
         isSeekable && _react2.default.createElement(_RangeControlOverlay2.default, {
           className: childClasses.seek || 'ProgressBar-seek',
           style: childrenStyles.RangeControlOverlay,
