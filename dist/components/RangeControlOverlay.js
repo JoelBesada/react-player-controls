@@ -143,7 +143,11 @@ var ControlDirection = exports.ControlDirection = {
     }
   }, {
     key: 'getValueFromMouseEvent',
-    value: function getValueFromMouseEvent(mouseEvent) {
+    value: function getValueFromMouseEvent(_mouseEvent) {
+      var mouseEvent = _mouseEvent;
+      if (mouseEvent.touches && mouseEvent.pageX === undefined) {
+        mouseEvent = mouseEvent.touches[0] || mouseEvent.changedTouches[0];
+      }
       return this.props.direction === ControlDirection.VERTICAL ? this.getVerticalValue(mouseEvent.pageY) : this.getHorizontalValue(mouseEvent.pageX);
     }
   }, {

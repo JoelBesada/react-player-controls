@@ -103,7 +103,11 @@ class RangeControlOverlay extends Component {
     body.style['-ms-user-select'] = value
   }
 
-  getValueFromMouseEvent (mouseEvent) {
+  getValueFromMouseEvent (_mouseEvent) {
+    let mouseEvent = _mouseEvent
+    if (mouseEvent.touches && mouseEvent.pageX === undefined) {
+      mouseEvent = mouseEvent.touches[0] || mouseEvent.changedTouches[0]
+    }
     return this.props.direction === ControlDirection.VERTICAL
       ? this.getVerticalValue(mouseEvent.pageY)
       : this.getHorizontalValue(mouseEvent.pageX)
